@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybrid-web-rag"
+version = "0.1.0"
+description = "FastAPI web RAG with hybrid retrieval, RRF, reranking, and citations"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12",
+  "EbookLib>=0.18",
+  "fastapi>=0.115",
+  "httpx>=0.27",
+  "numpy>=1.26",
+  "openai>=1.0",
+  "openpyxl>=3.1",
+  "odfpy>=1.4",
+  "pydantic-settings>=2.0",
+  "playwright>=1.49",
+  "pypdf>=5.0",
+  "python-docx>=1.1",
+  "python-multipart>=0.0.12",
+  "python-pptx>=1.0",
+  "rank-bm25>=0.2.2",
+  "sentence-transformers>=3.0",
+  "striprtf>=0.0.26",
+  "tiktoken>=0.7",
+  "xlrd>=2.0",
+  "PyYAML>=6.0",
+  "uvicorn[standard]>=0.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+hnsw = ["hnswlib>=0.8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
